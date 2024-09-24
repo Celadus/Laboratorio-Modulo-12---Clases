@@ -5,7 +5,7 @@ const reservaParticularCaso1 = new ReservaParticular(reservas);
 console.log(reservaParticularCaso1);
 console.log(
   "TOTAL sin IVA + Desayunos + Cargo adicional por cada persona: ",
-  reservaParticularCaso1.totalSinIVAMasCargoPorPersonaAdicional()
+  reservaParticularCaso1.totalSinIVAMasCargoAdicionalesPorPersona()
 );
 console.log("TOTAL con IVA: ", reservaParticularCaso1.totalConIVA());
 

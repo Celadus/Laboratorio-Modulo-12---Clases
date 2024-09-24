@@ -33,22 +33,22 @@ class ReservaHotel {
 }
 
 export class ReservaParticular extends ReservaHotel {
-  cargosPorPersonaAdicional: number;
+  cargosAdicionalesPorPersona: number;
   constructor(reservas: Reserva[]) {
     super(reservas);
     this.precioStandard = 100;
     this.precioSuite = 150;
-    this.cargosPorPersonaAdicional = 40;
+    this.cargosAdicionalesPorPersona = 40;
   }
 
-  totalSinIVAMasCargoPorPersonaAdicional() {
+  totalSinIVAMasCargoAdicionalesPorPersona() {
     return (
       this.totalSinIVA() +
       this.reservas.reduce((acc: number, reserva: Reserva): number => {
         if (reserva.pax > 1) {
           acc =
             acc +
-            (reserva.pax - 1) * reserva.noches * this.cargosPorPersonaAdicional;
+            (reserva.pax - 1) * reserva.noches * this.cargosAdicionalesPorPersona;
         }
         return acc;
       }, 0)
@@ -57,7 +57,7 @@ export class ReservaParticular extends ReservaHotel {
 
   totalConIVA(): number {
     return Number(
-      (this.totalSinIVAMasCargoPorPersonaAdicional() * 1.21).toFixed(2)
+      (this.totalSinIVAMasCargoAdicionalesPorPersona() * 1.21).toFixed(2)
     );
   }
 }
